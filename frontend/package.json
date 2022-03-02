@@ -17,6 +17,7 @@
     "cypress:run": "cypress run",
     "cypress:unit:open": "cypress open --config-file cypress-unit.json",
     "cypress:unit:run": "cypress run --config-file cypress-unit.json",
+    "prepare": "cd .. && husky install frontend/.husky",
     "postinstall": "husky install"
   },
   "dependencies": {
