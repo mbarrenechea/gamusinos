@@ -16,9 +16,9 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => (
   <ReduxProvider store={store}>
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
-          <OverlayProvider>
-            <Component {...pageProps} />
-          </OverlayProvider>
+        <OverlayProvider>
+          <Component {...pageProps} />
+        </OverlayProvider>
       </Hydrate>
     </QueryClientProvider>
   </ReduxProvider>
