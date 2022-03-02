@@ -1,4 +1,4 @@
-import ui from 'store/features/ui/slice';
+import ui from 'store/ui/slice';
 
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import type { ReducersMapObject } from '@reduxjs/toolkit';

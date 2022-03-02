@@ -5,7 +5,6 @@ This is a project template which could be used to the creation of new projects. 
 - Based on [Next.js](https://nextjs.org/)
 - [Tailwind](https://tailwindcss.com/) as CSS Framework
 - Reusable components such as forms, modals, icons, and other most use components
-- Authentication based on [Next-Auth](https://next-auth.js.org/) already implemented
 - [Redux](https://redux.js.org/) and [Redux-Toolkit](https://redux-toolkit.js.org/)
 - [Typescript](https://www.typescriptlang.org/) already configured
 - [Cypress](https://www.cypress.io/) as testing client
