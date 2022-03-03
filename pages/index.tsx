@@ -11,9 +11,9 @@ import ARTICLES from 'services/articles';
 import CATEGORIES from 'services/categories';
 
 const Home: React.FC = () => {
-  const { data: articlesData } = useArticles();
+  const { data: articlesData, meta: articlesMeta } = useArticles();
   const { data: categoriesData } = useCategories();
-  console.info({ articlesData, categoriesData });
+  console.info({ articlesData, articlesMeta, categoriesData });
 
   return (
     <div>

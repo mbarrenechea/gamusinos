@@ -17,7 +17,8 @@ export default function useArticles() {
     () => ({
       ...query,
       data: data?.data,
+      meta: data?.meta,
     }),
-    [query, data?.data],
+    [query, data],
   );
 }
