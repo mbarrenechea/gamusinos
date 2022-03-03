@@ -23,17 +23,9 @@ const Home: React.FC = () => {
 
       <Header />
 
-      <h1 className="text-4xl font-light font-display">Index</h1>
-      <p>Remember to edit:</p>
-      <ul>
-        <li>package.json</li>
-        <li>pages/app.js</li>
-        <li>now.json (Vercel)</li>
-      </ul>
-      <p>
-        Also, we strongly recommend to read and follow our [Standardization
-        guidelines](https://vizzuality.github.io/devismos/docs/guidelines/standardization/).
-      </p>
+      <div className="container mx-auto">
+        <h1 className="text-4xl font-light font-display">Index</h1>
+      </div>
     </div>
   );
 };

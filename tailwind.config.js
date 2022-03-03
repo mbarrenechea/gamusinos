@@ -1,23 +1,20 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const forms = require('@tailwindcss/forms');
-
-const lineClamp = require('./lib/tailwind/line-clamp');
+const lineClamp = require('@tailwindcss/line-clamp');
+const colors = require('tailwindcss/colors');
 
 module.exports = {
-  purge: {
-    enabled: process.env.NODE_ENV !== 'development',
-    content: ['./**/*.ts', './**/*.tsx'],
-  },
-  darkMode: false, // or 'media' or 'class'
+  content: ['./components/**/*.ts', './containers/**/*.tsx', './pages/**/*.tsx'],
   theme: {
     fontFamily: {
       display: 'Gascogne',
       body: 'Matter',
     },
-    extend: {},
-  },
-  variants: {
-    extend: {},
+    colors: {
+      current: 'currentColor',
+      gray: colors.zinc,
+      primary: '#F9F6F0',
+    },
   },
   plugins: [forms, lineClamp],
 };

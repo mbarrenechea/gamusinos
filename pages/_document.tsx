@@ -31,7 +31,7 @@ class MyDocument extends Document {
             }}
           />
         </Head>
-        <body>
+        <body className="bg-primary">
           <Main />
           <NextScript />
         </body>
