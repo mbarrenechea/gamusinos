@@ -1,5 +1,5 @@
 {
-  "name": "gamusinos",
+  "name": "gamusinos-frontend",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -17,7 +17,7 @@
     "cypress:run": "cypress run",
     "cypress:unit:open": "cypress open --config-file cypress-unit.json",
     "cypress:unit:run": "cypress run --config-file cypress-unit.json",
-    "prepare": "cd .. && husky install frontend/.husky"
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@dnd-kit/core": "^3.0.3",
