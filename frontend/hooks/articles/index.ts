@@ -5,7 +5,7 @@ import { useQuery } from 'react-query';
 import ARTICLES from 'services/articles';
 
 export default function useArticles() {
-  const query = useQuery('me', () =>
+  const query = useQuery('articles', () =>
     ARTICLES.request({
       method: 'GET',
       url: '/',
@@ -17,7 +17,7 @@ export default function useArticles() {
   return useMemo(
     () => ({
       ...query,
-      user: data?.data,
+      data: data?.data,
     }),
     [query, data?.data]
   );

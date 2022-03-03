@@ -1,22 +1,60 @@
+import { dehydrate, QueryClient } from 'react-query';
+
 import Head from 'next/head';
 
-const Home: React.FC = () => (
-  <div>
-    <Head>
-      <title>Welcome</title>
-    </Head>
-    <h1>Welcome to Vizzuality Front End scaffold project.</h1>
-    <p>Remember to edit:</p>
-    <ul>
-      <li>package.json</li>
-      <li>pages/app.js</li>
-      <li>now.json (Vercel)</li>
-    </ul>
-    <p>
-      Also, we strongly recommend to read and follow our [Standardization
-      guidelines](https://vizzuality.github.io/devismos/docs/guidelines/standardization/).
-    </p>
-  </div>
-);
+import useArticles from 'hooks/articles';
+import useCategories from 'hooks/categories';
+
+import ARTICLES from 'services/articles';
+import CATEGORIES from 'services/categories';
+
+const Home: React.FC = () => {
+  const { data: articlesData } = useArticles();
+  const { data: categoriesData } = useCategories();
+  console.info({ articlesData, categoriesData });
+
+  return (
+    <div>
+      <Head>
+        <title>Welcome</title>
+      </Head>
+      <h1 className="text-4xl font-light font-display">Index</h1>
+      <p>Remember to edit:</p>
+      <ul>
+        <li>package.json</li>
+        <li>pages/app.js</li>
+        <li>now.json (Vercel)</li>
+      </ul>
+      <p>
+        Also, we strongly recommend to read and follow our [Standardization
+        guidelines](https://vizzuality.github.io/devismos/docs/guidelines/standardization/).
+      </p>
+    </div>
+  );
+};
+
+export const getStaticProps = async () => {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery('articles', () =>
+    ARTICLES.request({
+      method: 'GET',
+      url: '/',
+    }).then((response) => response.data)
+  );
+
+  await queryClient.prefetchQuery('categories', () =>
+    CATEGORIES.request({
+      method: 'GET',
+      url: '/',
+    }).then((response) => response.data)
+  );
+
+  return {
+    props: {
+      dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
+    },
+  };
+};
 
 export default Home;

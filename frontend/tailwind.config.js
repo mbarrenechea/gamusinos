@@ -10,6 +10,10 @@ module.exports = {
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
+    fontFamily: {
+      display: 'Gascogne',
+      body: 'Matter',
+    },
     extend: {},
   },
   variants: {

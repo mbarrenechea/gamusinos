@@ -3,7 +3,7 @@ import Jsona from 'jsona';
 
 const dataFormatter = new Jsona();
 
-const ARTICLES = axios.create({
+const CATEGORIES = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_API_URL}/categories`,
   headers: { 'Content-Type': 'application/json' },
   transformResponse: (data) => {
@@ -19,4 +19,4 @@ const ARTICLES = axios.create({
   },
 });
 
-export default ARTICLES;
+export default CATEGORIES;

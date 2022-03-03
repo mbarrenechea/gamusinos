@@ -4,8 +4,8 @@ import { useQuery } from 'react-query';
 
 import CATEGORIES from 'services/categories';
 
-export default function useArticles() {
-  const query = useQuery('me', () =>
+export default function useCategories() {
+  const query = useQuery('categories', () =>
     CATEGORIES.request({
       method: 'GET',
       url: '/',
@@ -17,7 +17,7 @@ export default function useArticles() {
   return useMemo(
     () => ({
       ...query,
-      user: data?.data,
+      data: data?.data,
     }),
     [query, data?.data]
   );
