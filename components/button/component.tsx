@@ -10,7 +10,9 @@ import type { ButtonProps, AnchorProps, Overload } from './types';
 // Guard to check if href exists in props
 const hasHref = (props: ButtonProps | AnchorProps): props is AnchorProps => 'href' in props;
 
-function buildClassName({ className, disabled, size, theme }) {
+function buildClassName({
+  className, disabled, size, theme,
+}) {
   return cx({
     'flex items-center justify-center rounded-3xl': true,
     [THEME[theme]]: true,

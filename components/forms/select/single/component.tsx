@@ -1,4 +1,6 @@
-import { useEffect, useRef, useMemo, FC } from 'react';
+import {
+  useEffect, useRef, useMemo, FC,
+} from 'react';
 
 import { createPortal } from 'react-dom';
 import { usePopper } from 'react-popper';
@@ -44,15 +46,15 @@ export const SingleSelect: FC<SelectProps> = ({
     () => [
       ...(clearSelectionActive
         ? [
-            {
-              value: null,
-              label: clearSelectionLabel,
-            },
-          ]
+          {
+            value: null,
+            label: clearSelectionLabel,
+          },
+        ]
         : []),
       ...options,
     ],
-    [options, clearSelectionActive, clearSelectionLabel]
+    [options, clearSelectionActive, clearSelectionLabel],
   );
 
   const getInitialSelected = useMemo(() => {
@@ -102,9 +104,9 @@ export const SingleSelect: FC<SelectProps> = ({
       const { changes, type } = actionAndChanges;
 
       if (
-        type === useSelect.stateChangeTypes.MenuKeyDownEnter ||
-        type === useSelect.stateChangeTypes.MenuKeyDownSpaceButton ||
-        type === useSelect.stateChangeTypes.ItemClick
+        type === useSelect.stateChangeTypes.MenuKeyDownEnter
+        || type === useSelect.stateChangeTypes.MenuKeyDownSpaceButton
+        || type === useSelect.stateChangeTypes.ItemClick
       ) {
         onSelect(changes.selectedItem);
       }
@@ -133,9 +135,8 @@ export const SingleSelect: FC<SelectProps> = ({
   });
 
   // Hide menu if reference is outside the boundaries
-  const referenceHidden =
-    attributes?.popper?.['data-popper-reference-hidden'] ||
-    attributes?.popper?.['data-popper-reference-scaped'];
+  const referenceHidden = attributes?.popper?.['data-popper-reference-hidden']
+    || attributes?.popper?.['data-popper-reference-scaped'];
   useEffect(() => {
     if (referenceHidden) {
       closeMenu();
@@ -222,8 +223,8 @@ export const SingleSelect: FC<SelectProps> = ({
                     [THEME[theme].item.base]: highlightedIndex !== index,
                     [THEME[theme].item.disabled]: option.disabled,
                     [THEME[theme].item.highlighted]:
-                      (highlightedIndex === index && !option.disabled) ||
-                      isSelected(option, selectedItems),
+                      (highlightedIndex === index && !option.disabled)
+                      || isSelected(option, selectedItems),
                   })}
                   key={`${option.value}`}
                   {...getItemProps({ item: option, index, disabled: option.disabled })}
@@ -240,7 +241,7 @@ export const SingleSelect: FC<SelectProps> = ({
             </ul>
           </Menu>
         </div>,
-        document.body
+        document.body,
       )}
     </div>
   );

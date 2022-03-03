@@ -1,4 +1,6 @@
-import { useEffect, useRef, useMemo, FC } from 'react';
+import {
+  useEffect, useRef, useMemo, FC,
+} from 'react';
 
 import { createPortal } from 'react-dom';
 import { usePopper } from 'react-popper';
@@ -48,27 +50,27 @@ export const MultiSelect: FC<SelectProps> = ({
     () => [
       ...(clearSelectionActive
         ? [
-            {
-              value: 'batch-clear-selection',
-              label: clearSelectionLabel,
-              enabled: false,
-              checkbox: false,
-            },
-          ]
+          {
+            value: 'batch-clear-selection',
+            label: clearSelectionLabel,
+            enabled: false,
+            checkbox: false,
+          },
+        ]
         : []),
       ...(batchSelectionActive
         ? [
-            {
-              value: 'batch-selection',
-              label: batchSelectionLabel,
-              enabled: false,
-              checkbox: false,
-            },
-          ]
+          {
+            value: 'batch-selection',
+            label: batchSelectionLabel,
+            enabled: false,
+            checkbox: false,
+          },
+        ]
         : []),
       ...options.map((o) => ({ ...o, checkbox: true, enabled: true })),
     ],
-    [options, clearSelectionActive, clearSelectionLabel, batchSelectionActive, batchSelectionLabel]
+    [options, clearSelectionActive, clearSelectionLabel, batchSelectionActive, batchSelectionLabel],
   );
 
   const getOptionsEnabled = useMemo(() => {
@@ -131,10 +133,10 @@ export const MultiSelect: FC<SelectProps> = ({
     stateReducer: (st, actionAndChanges) => {
       const { changes, type } = actionAndChanges;
       if (
-        type === useMultipleSelection.stateChangeTypes.FunctionAddSelectedItem ||
-        type === useMultipleSelection.stateChangeTypes.FunctionRemoveSelectedItem ||
-        type === useMultipleSelection.stateChangeTypes.FunctionSetSelectedItems ||
-        type === useMultipleSelection.stateChangeTypes.FunctionReset
+        type === useMultipleSelection.stateChangeTypes.FunctionAddSelectedItem
+        || type === useMultipleSelection.stateChangeTypes.FunctionRemoveSelectedItem
+        || type === useMultipleSelection.stateChangeTypes.FunctionSetSelectedItems
+        || type === useMultipleSelection.stateChangeTypes.FunctionReset
       ) {
         onSelect(changes.selectedItems);
       }
@@ -143,36 +145,37 @@ export const MultiSelect: FC<SelectProps> = ({
     },
   });
 
-  const { isOpen, highlightedIndex, getToggleButtonProps, getMenuProps, getItemProps, closeMenu } =
-    useSelect<SelectOptionProps>({
-      items: getOptions,
-      itemToString: (item) => item.label, // How the selected options is announced to screen readers
-      stateReducer: (st, actionAndChanges) => {
-        const { type, changes } = actionAndChanges;
-        const { selectedItem: option } = changes;
+  const {
+    isOpen, highlightedIndex, getToggleButtonProps, getMenuProps, getItemProps, closeMenu,
+  } = useSelect<SelectOptionProps>({
+    items: getOptions,
+    itemToString: (item) => item.label, // How the selected options is announced to screen readers
+    stateReducer: (st, actionAndChanges) => {
+      const { type, changes } = actionAndChanges;
+      const { selectedItem: option } = changes;
 
-        switch (type) {
-          case useSelect.stateChangeTypes.MenuKeyDownEnter:
-          case useSelect.stateChangeTypes.ItemClick:
-            handleSelectedItem({
-              option,
-              selectedItems,
-              addSelectedItem,
-              removeSelectedItem,
-              setSelectedItems,
-              reset,
-            });
+      switch (type) {
+        case useSelect.stateChangeTypes.MenuKeyDownEnter:
+        case useSelect.stateChangeTypes.ItemClick:
+          handleSelectedItem({
+            option,
+            selectedItems,
+            addSelectedItem,
+            removeSelectedItem,
+            setSelectedItems,
+            reset,
+          });
 
-            return {
-              ...changes,
-              highlightedIndex: st.highlightedIndex,
-              isOpen: true,
-            };
-          default:
-            return changes;
-        }
-      },
-    });
+          return {
+            ...changes,
+            highlightedIndex: st.highlightedIndex,
+            isOpen: true,
+          };
+        default:
+          return changes;
+      }
+    },
+  });
 
   // 'usePopper'
   const { styles, attributes, update } = usePopper(triggerRef.current, menuRef.current, {
@@ -182,9 +185,8 @@ export const MultiSelect: FC<SelectProps> = ({
   });
 
   // Hide menu if reference is outside the boundaries
-  const referenceHidden =
-    attributes?.popper?.['data-popper-reference-hidden'] ||
-    attributes?.popper?.['data-popper-reference-scaped'];
+  const referenceHidden = attributes?.popper?.['data-popper-reference-hidden']
+    || attributes?.popper?.['data-popper-reference-scaped'];
   useEffect(() => {
     if (referenceHidden) {
       closeMenu();
@@ -274,8 +276,8 @@ export const MultiSelect: FC<SelectProps> = ({
                     [THEME[theme].item.base]: highlightedIndex !== index,
                     [THEME[theme].item.disabled]: option.disabled,
                     [THEME[theme].item.highlighted]:
-                      (highlightedIndex === index && !option.disabled) ||
-                      isSelected(option, selectedItems),
+                      (highlightedIndex === index && !option.disabled)
+                      || isSelected(option, selectedItems),
                   })}
                   key={`${option.value}`}
                   {...getItemProps({ item: option, index, disabled: option.disabled })}
@@ -301,7 +303,7 @@ export const MultiSelect: FC<SelectProps> = ({
             </ul>
           </Menu>
         </div>,
-        document.body
+        document.body,
       )}
     </div>
   );

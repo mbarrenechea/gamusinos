@@ -1,12 +1,11 @@
 import type { FieldValidator, FieldState } from 'final-form';
 import validate from 'validate.js';
 
-export const composeValidators =
-  (validations: unknown[]) =>
+export const composeValidators = (validations: unknown[]) =>
   (
     value: unknown,
     allValues: Record<string, unknown>,
-    meta?: FieldState<unknown>
+    meta?: FieldState<unknown>,
   ): FieldValidator<unknown>[] => {
     if (validations) {
       const errors = validations.map((validator: unknown) => {

@@ -5,6 +5,8 @@ import Head from 'next/head';
 import useArticles from 'hooks/articles';
 import useCategories from 'hooks/categories';
 
+import Header from 'containers/header';
+
 import ARTICLES from 'services/articles';
 import CATEGORIES from 'services/categories';
 
@@ -18,6 +20,9 @@ const Home: React.FC = () => {
       <Head>
         <title>Welcome</title>
       </Head>
+
+      <Header />
+
       <h1 className="text-4xl font-light font-display">Index</h1>
       <p>Remember to edit:</p>
       <ul>
@@ -40,15 +45,13 @@ export const getStaticProps = async () => {
     ARTICLES.request({
       method: 'GET',
       url: '/',
-    }).then((response) => response.data)
-  );
+    }).then((response) => response.data));
 
   await queryClient.prefetchQuery('categories', () =>
     CATEGORIES.request({
       method: 'GET',
       url: '/',
-    }).then((response) => response.data)
-  );
+    }).then((response) => response.data));
 
   return {
     props: {

@@ -9,8 +9,7 @@ export default function useCategories() {
     CATEGORIES.request({
       method: 'GET',
       url: '/',
-    }).then((response) => response.data)
-  );
+    }).then((response) => response.data));
 
   const { data } = query;
 
@@ -19,6 +18,6 @@ export default function useCategories() {
       ...query,
       data: data?.data,
     }),
-    [query, data?.data]
+    [query, data?.data],
   );
 }

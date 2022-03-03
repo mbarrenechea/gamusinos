@@ -10,17 +10,17 @@ export interface AnchorButtonProps {
 
 // Button props
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
-  AnchorButtonProps & {
-    href?: undefined;
-  };
+AnchorButtonProps & {
+  href?: undefined;
+};
 
 // Anchor props
 export type AnchorProps = AnchorHTMLAttributes<HTMLAnchorElement> &
-  AnchorButtonProps & {
-    href?: string;
-    disabled?: boolean;
-    anchorLinkProps?: LinkProps;
-  };
+AnchorButtonProps & {
+  href?: string;
+  disabled?: boolean;
+  anchorLinkProps?: LinkProps;
+};
 
 // Input/output options
 export type Overload = {

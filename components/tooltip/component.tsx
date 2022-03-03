@@ -21,7 +21,7 @@ export const Tooltip: FC<TooltipProps> = ({
   const onMount = useCallback(() => {
     scale.set(1);
     opacity.set(1);
-  }, []);
+  }, []); // eslint-disable-line
 
   const onHide = useCallback(({ unmount }) => {
     const cleanup = scale.onChange((value) => {
@@ -33,7 +33,7 @@ export const Tooltip: FC<TooltipProps> = ({
 
     scale.set(0.95);
     opacity.set(0);
-  }, []);
+  }, []); // eslint-disable-line
 
   return (
     <Tippy

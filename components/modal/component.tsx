@@ -1,10 +1,14 @@
-import { Children, FC, cloneElement, isValidElement, useRef } from 'react';
+import {
+  Children, FC, cloneElement, isValidElement, useRef,
+} from 'react';
 
 import cx from 'classnames';
 
 import { useDialog } from '@react-aria/dialog';
 import { FocusScope } from '@react-aria/focus';
-import { useOverlay, usePreventScroll, useModal, OverlayContainer } from '@react-aria/overlays';
+import {
+  useOverlay, usePreventScroll, useModal, OverlayContainer,
+} from '@react-aria/overlays';
 import { AnimatePresence, motion } from 'framer-motion';
 
 import Icon from 'components/icon';
@@ -31,7 +35,7 @@ export const Modal: FC<ModalProps> = ({
       isOpen: open,
       onClose: onDismiss,
     },
-    containerRef
+    containerRef,
   );
   const { modalProps } = useModal();
   const { dialogProps } = useDialog({ 'aria-label': title }, containerRef);
