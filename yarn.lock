@@ -9688,9 +9688,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gamusinos@workspace:.":
+"gamusinos-frontend@workspace:.":
   version: 0.0.0-use.local
-  resolution: "gamusinos@workspace:."
+  resolution: "gamusinos-frontend@workspace:."
   dependencies:
     "@babel/core": ^7.14.2
     "@dnd-kit/core": ^3.0.3
