@@ -3,29 +3,26 @@ import { dehydrate, QueryClient } from 'react-query';
 import Head from 'next/head';
 
 import useArticles from 'hooks/articles';
-import useCategories from 'hooks/categories';
 
 import Header from 'containers/header';
+import Home from 'containers/home';
 
 import ARTICLES from 'services/articles';
 import CATEGORIES from 'services/categories';
 
-const Home: React.FC = () => {
+const HomePage: React.FC = () => {
   const { data: articlesData, meta: articlesMeta } = useArticles();
-  const { data: categoriesData } = useCategories();
-  console.info({ articlesData, articlesMeta, categoriesData });
+  console.info({ articlesData, articlesMeta });
 
   return (
     <div>
       <Head>
-        <title>Welcome</title>
+        <title>Gamusinos</title>
       </Head>
 
       <Header />
 
-      <div className="container mx-auto">
-        <h1 className="text-4xl font-light font-display">Index</h1>
-      </div>
+      <Home />
     </div>
   );
 };
@@ -43,6 +40,9 @@ export const getStaticProps = async () => {
     CATEGORIES.request({
       method: 'GET',
       url: '/',
+      params: {
+        sort: ['title'],
+      },
     }).then((response) => response.data));
 
   return {
@@ -52,4 +52,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export default Home;
+export default HomePage;

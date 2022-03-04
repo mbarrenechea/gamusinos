@@ -13,10 +13,11 @@ interface HeaderProps {}
 
 export const Header: FC<HeaderProps> = () => {
   const buttonStyles = 'border border-zinc-900 border-opacity-10 rounded-3xl min-h-[40px]';
+
   return (
     <header
       key="header"
-      className="container relative flex justify-between py-4 mx-auto"
+      className="relative flex justify-between p-4"
     >
       <button
         type="button"

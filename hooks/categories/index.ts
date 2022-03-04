@@ -9,6 +9,9 @@ export default function useCategories() {
     CATEGORIES.request({
       method: 'GET',
       url: '/',
+      params: {
+        sort: ['title'],
+      },
     }).then((response) => response.data));
 
   const { data } = query;

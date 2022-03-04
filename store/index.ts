@@ -1,10 +1,10 @@
-import ui from 'store/ui/slice';
+import home from 'store/home/slice';
 
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import type { ReducersMapObject } from '@reduxjs/toolkit';
 
 const staticReducers = {
-  ui,
+  '/home': home,
 };
 
 const asyncReducers = {};
