@@ -2,8 +2,6 @@ import { dehydrate, QueryClient } from 'react-query';
 
 import Head from 'next/head';
 
-import useArticles from 'hooks/articles';
-
 import Header from 'containers/header';
 import Home from 'containers/home';
 
@@ -11,9 +9,6 @@ import ARTICLES from 'services/articles';
 import CATEGORIES from 'services/categories';
 
 const HomePage: React.FC = () => {
-  const { data: articlesData, meta: articlesMeta } = useArticles();
-  console.info({ articlesData, articlesMeta });
-
   return (
     <div>
       <Head>
