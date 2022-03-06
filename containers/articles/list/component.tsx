@@ -12,7 +12,9 @@ export const ArticlesList: FC<ArticlesListProps> = () => {
 
   const { data: articlesData } = useArticles({
     params: {
-      'filters[categories][articles][id][$in]': categories,
+      ...!!categories.length && {
+        'filters[categories][id][$in]': categories,
+      },
       populate: '*',
     },
   });
@@ -21,7 +23,14 @@ export const ArticlesList: FC<ArticlesListProps> = () => {
 
   return (
     <div>
-      Articles
+      {articlesData.map((article) => {
+        const { id, title } = article;
+        return (
+          <div key={id}>
+            <h3>{title}</h3>
+          </div>
+        );
+      })}
     </div>
   );
 };

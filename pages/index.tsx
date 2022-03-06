@@ -25,10 +25,15 @@ const HomePage: React.FC = () => {
 export const getStaticProps = async () => {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery('articles', () =>
+  const articleParams = {
+    populate: '*',
+  };
+
+  await queryClient.prefetchQuery(['articles', JSON.stringify(articleParams)], () =>
     ARTICLES.request({
       method: 'GET',
       url: '/',
+      params: articleParams,
     }).then((response) => response.data));
 
   await queryClient.prefetchQuery('categories', () =>
