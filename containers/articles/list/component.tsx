@@ -10,14 +10,14 @@ export const ArticlesList: FC<ArticlesListProps> = () => {
   const { filters } = useAppSelector((state) => state['/home']);
   const { categories } = filters;
 
-  const { data: articlesData, meta: articlesMeta } = useArticles({
+  const { data: articlesData } = useArticles({
     params: {
       'filters[categories][articles][id][$in]': categories,
       populate: '*',
     },
   });
 
-  console.info({ articlesData, articlesMeta });
+  console.info({ articlesData });
 
   return (
     <div>
