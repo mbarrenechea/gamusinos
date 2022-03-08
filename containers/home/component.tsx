@@ -8,7 +8,7 @@ interface HomeProps {}
 
 export const Home: FC<HomeProps> = () => {
   return (
-    <div className="px-4 mt-16">
+    <div className="mt-16">
       <HomeHeader />
 
       <Articles />

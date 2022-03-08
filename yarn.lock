@@ -9694,6 +9694,7 @@ __metadata:
     final-form: ^4.20.2
     framer-motion: ^4.1.17
     husky: ^7.0.4
+    json-api-deserialize: ^0.0.4
     jsona: ^1.9.2
     jsonwebtoken: ^8.5.1
     lodash: ^4.17.21
@@ -9708,6 +9709,7 @@ __metadata:
     react-aria: ^3.6.0
     react-dom: ^17.0.2
     react-final-form: ^6.5.3
+    react-masonry-css: ^1.0.16
     react-popper: ^2.2.5
     react-query: ^3.16.0
     react-redux: ^7.2.4
@@ -11497,6 +11499,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"json-api-deserialize@npm:^0.0.4":
+  version: 0.0.4
+  resolution: "json-api-deserialize@npm:0.0.4"
+  dependencies:
+    lodash: ^4.17.11
+  checksum: 9550538f89416e9c3fc5dc81f9e6f176c9fce544350014dcdbd5a7a8e9748c4e50f0d644711d3b7de951556cebfc6e72dfb169f5ac0a97e1fb657636b2ee5294
+  languageName: node
+  linkType: hard
+
 "json-parse-better-errors@npm:^1.0.2":
   version: 1.0.2
   resolution: "json-parse-better-errors@npm:1.0.2"
@@ -11972,7 +11983,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21":
+"lodash@npm:^4.17.11, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
@@ -14606,6 +14617,15 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
+  languageName: node
+  linkType: hard
+
+"react-masonry-css@npm:^1.0.16":
+  version: 1.0.16
+  resolution: "react-masonry-css@npm:1.0.16"
+  peerDependencies:
+    react: ">=16.0.0"
+  checksum: 3fbffac31535b049b3117b952b112dce31f8e2a84031191a926ad21b782cf20d07761fb90134dded339498be40360e0864af6bc0696f1606c7a4cb5a6aa1ad18
   languageName: node
   linkType: hard
 

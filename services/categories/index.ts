@@ -1,7 +1,5 @@
 import axios from 'axios';
-import Jsona from 'jsona';
-
-const dataFormatter = new Jsona();
+import { deserialize } from 'json-api-deserialize';
 
 const CATEGORIES = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_API_URL}/categories`,
@@ -10,7 +8,7 @@ const CATEGORIES = axios.create({
     try {
       const parsedData = JSON.parse(data);
       return {
-        data: dataFormatter.deserialize(parsedData),
+        data: deserialize(parsedData.data),
         meta: parsedData.meta,
       };
     } catch (error) {
