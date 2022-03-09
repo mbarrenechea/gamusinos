@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import Articles from 'containers/articles/list';
+import Articles from 'containers/articles/masonry';
 
 import HomeHeader from './header';
 
