@@ -29,7 +29,7 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = ({
     >
       <a
         className={cx({
-          'relative flex flex-col grow p-8 border-t border-gray-300 border-dashed break-inside-avoid last:border-b': true,
+          'relative flex flex-col grow p-4 md:p-8 border-t border-gray-300 border-dashed break-inside-avoid last:border-b': true,
         })}
         href={`/articles/${id}`}
       >

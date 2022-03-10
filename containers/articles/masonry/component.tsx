@@ -70,7 +70,7 @@ export const ArticlesMasonryList: FC<ArticlesMasonryListProps> = () => {
     <div className="relative mt-8">
       <div
         className={cx({
-          'grid justify-center w-full h-full grid-cols-1 gap-0 px-4': true,
+          'grid justify-center w-full h-full grid-cols-1 gap-0': true,
           'sm:grid-cols-2': articlesData.length >= 2,
           'md:grid-cols-3': articlesData.length >= 3,
           'lg:grid-cols-4': articlesData.length >= 4,

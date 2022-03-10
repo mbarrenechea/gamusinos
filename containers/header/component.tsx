@@ -17,7 +17,7 @@ export const Header: FC<HeaderProps> = () => {
   return (
     <header
       key="header"
-      className="relative flex justify-between p-4"
+      className="relative flex justify-between px-4 py-4 md:px-8"
     >
       <button
         type="button"
