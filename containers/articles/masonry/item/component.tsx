@@ -77,7 +77,7 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = ({
               }}
             >
               <img
-                src={`${process.env.NEXT_PUBLIC_IMG_URL}${image.formats.thumbnail.url}`}
+                src={`${process.env.NEXT_PUBLIC_IMG_URL || ''}${image.formats.thumbnail.url}`}
                 alt={`${image.capion}`}
               />
             </motion.div>
