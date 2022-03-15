@@ -1,13 +1,15 @@
-import { FC } from 'react';
+import { FC, useCallback, useState } from 'react';
 
 import cx from 'classnames';
 
 import Link from 'next/link';
 
+import { AnimatePresence, motion } from 'framer-motion';
+
 interface ArticlesListItemProps {
   id: number;
   title: string;
-  image: Record<string, unknown>;
+  image: Record<string, any>;
   categories: {
     id: string;
     title: string;
@@ -21,7 +23,16 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = ({
   image,
   categories = [],
 }:ArticlesListItemProps) => {
-  console.info(image);
+  console.log(image);
+  const [hover, setHover] = useState(false);
+
+  const onMouseEnter = useCallback(() => {
+    setHover(true);
+  }, []);
+
+  const onMouseLeave = useCallback(() => {
+    setHover(false);
+  }, []);
 
   return (
     <Link
@@ -29,9 +40,11 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = ({
     >
       <a
         className={cx({
-          'relative flex flex-col grow p-4 md:p-8 border-t border-gray-300 border-dashed break-inside-avoid last:border-b': true,
+          'relative p-4 md:p-8 border-t border-gray-300 border-dashed break-inside-avoid last:border-b': true,
         })}
         href={`/articles/${id}`}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
       >
         <div className="flex space-x-1">
           {categories.map((c) => (
@@ -47,12 +60,30 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = ({
           {title}
         </h2>
 
-        {/* <div className="hidden">
-          <img
-            src={`${process.env.NEXT_PUBLIC_IMG_URL}${image.formats.thumbnail.url}`}
-            alt={`${image.capion}`}
-          />
-        </div> */}
+        <AnimatePresence exitBeforeEnter>
+          {hover && (
+            <motion.div
+              className="relative overflow-hidden"
+              initial={{
+                opacity: 0,
+                maxHeight: 0,
+              }}
+              animate={{
+                opacity: 1,
+                maxHeight: image.formats.thumbnail.height,
+              }}
+              exit={{
+                opacity: 0,
+                maxHeight: 0,
+              }}
+            >
+              <img
+                src={`${process.env.NEXT_PUBLIC_IMG_URL}${image.formats.thumbnail.url}`}
+                alt={`${image.capion}`}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </a>
 
     </Link>
