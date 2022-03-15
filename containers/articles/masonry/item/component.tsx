@@ -23,7 +23,6 @@ export const ArticlesListItem: FC<ArticlesListItemProps> = ({
   image,
   categories = [],
 }:ArticlesListItemProps) => {
-  console.log(image);
   const [hover, setHover] = useState(false);
 
   const onMouseEnter = useCallback(() => {
